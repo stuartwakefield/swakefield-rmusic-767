@@ -4,7 +4,7 @@ require_once "views/SearchFormView.php";
 require_once "handlers/HomeHandler.php";
 
 $searchFormConfig = (object) array
-	( "url" => "/search"
+	( "url" => "search"
 	, "arg" => "search" );
 $searchFormContent = (object) array
 	( "label" => "Search"
