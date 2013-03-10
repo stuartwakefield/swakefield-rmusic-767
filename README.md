@@ -15,11 +15,11 @@ Run from the base directory
 
 ## Launching
 
-	http://swakefield-rmusic767.local/
-
-The unnecessary use of lots of (the kitchen sink...) different frameworks is to 
-illustrate: how the loose coupling of valuable business functionality and 
-frameworks can be achieved.
+	http://swakefield-rmusic767.local/pure
+	http://swakefield-rmusic767.local/zend
+	http://swakefield-rmusic767.local/symfony
+	http://swakefield-rmusic767.local/codeigniter
+	http://swakefield-rmusic767.local/slim
 
 ## Testing
 
