@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="swakefield-rmusic-767-searchextended" dir="." default="build">
+
+	<target name="phpunit" description="Run unit tests with PHPUnit">
+		<exec executable="phpunit" failonerror="true"/>
+	</target>
+
+	<target name="build" depends="phpunit"/>
+
+</project>

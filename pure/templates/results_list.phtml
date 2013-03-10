@@ -1,0 +1,16 @@
+<p>Displaying 
+	<?php echo $args->startIndex;?> - 
+	<?php echo $args->endIndex;?> of 
+	<?php echo $args->count;?></p>
+<p>Page 
+	<?php echo $args->page;?> of 
+	<?php echo $args->pageCount?></p>
+<a href="<?php echo $args->firstPage->link;?>">First</a>
+<?php if($args->hasPreviousPage):?>
+	<a href="<?php echo $args->previousPage->link;?>">Previous</a>
+<?php endif;?>
+<?php if($args->hasNextPage):?>
+	<a href="<?php echo $args->nextPage->link;?>">Next</a>
+<?php endif;?>
+<a href="<?php echo $args->lastPage->link;?>">Last</a>
+<ul><?php echo $args->items;?></ul>

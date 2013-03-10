@@ -1,0 +1,5 @@
+zend/**/*
+symfony/**/*
+codeigniter/**/*
+slim/**/*
+bin

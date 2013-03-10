@@ -1,0 +1,6 @@
+{ "require" : 
+	{ "behat/behat" : "*"
+	, "behat/mink" : "*"
+	, "behat/mink-selenium2-driver" : "*" }
+, "config" :
+	{ "bin-dir" : "bin/" } }
