@@ -6,110 +6,102 @@ use \Behat\Behat\Context\BehatContext;
 use \Behat\Mink\Driver\Selenium2Driver;
 use \Behat\Behat\Exception\PendingException;
 
-
-class FeatureContext extends BehatContext
-{
+/**
+ * 
+ */
+class FeatureContext extends BehatContext {
+	
     private $session;
+	private $search = "chris";
 
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
     public function __construct(array $parameters) {
         // Initialize your context here
-        $this->baseUrl = $parameters["base_url"];
-        $driver = new \Behat\Mink\Driver\Selenium2Driver($parameters["browser"], null);
-		$driver->start();
-        $this->session = $driver->getWebDriverSession();
+        $driver = new \Behat\Mink\Driver\Selenium2Driver($parameters["browser"], $parameters["base_url"]);
+        $this->session = new \Behat\Mink\Session($driver);
+		$this->session->start();
     }
-
-    /**
-     * @Given /^I am on a web page$/
-     */
-    public function iAmOnAWebPage() {
-    	$this->session->open($this->baseUrl);
-    }
-
+	
     /**
      * @When /^I submit a search$/
      */
-    public function iSubmitASearch()
-    {
-        
+    public function iSubmitASearch() {
+    	$page = $this->session->getPage();
+		$el = $page->find("css", "#search button");
+		$el->click();
     }
 
     /**
      * @Then /^I should be shown results$/
      */
-    public function iShouldBeShownResults()
-    {
+    public function iShouldBeShownResults() {
         throw new PendingException();
     }
 
     /**
      * @Given /^there are matching brands$/
      */
-    public function thereAreMatchingBrands()
-    {
-        throw new PendingException();
+    public function thereAreMatchingBrands() {
+        // Already set up with a field with matching brands
     }
 
     /**
      * @Given /^there are available episodes$/
      */
-    public function thereAreAvailableEpisodes()
-    {
-        throw new PendingException();
+    public function thereAreAvailableEpisodes() {
+        // Should be available episodes
     }
 
     /**
-     * @Then /^I should be shown these episodes$/
+     * @Then /^I should be shown the episodes$/
      */
-    public function iShouldBeShownTheseEpisodes()
-    {
-        throw new PendingException();
+    public function iShouldBeShownTheEpisodes() {
+    	$page = $this->session->getPage();
+        if($page->find("css", "#episodes li") === null) {
+        	throw new Exception("No episode list items found");
+        }
     }
 
     /**
      * @Given /^there are no matching brands$/
      */
-    public function thereAreNoMatchingBrands()
-    {
-        throw new PendingException();
+    public function thereAreNoMatchingBrands() {
+        $this->search = "xyz";
     }
 
     /**
-     * @Then /^I should be shown a no results message$/
+     * @Then /^I should be shown a no results message$
      */
-    public function iShouldBeShownANoResultsMessage()
-    {
-        throw new PendingException();
+    public function iShouldBeShownANoResultsMessage()  {
+    	$page = $this->session->getPage();
+		if($page->find("css", "#no-episodes.show") === null) {
+			throw new Exception("The no results message is not shown");
+		}
     }
 
     /**
      * @When /^I enter text to search$/
      */
-    public function iEnterTextToSearch()
-    {
-        throw new PendingException();
+    public function iEnterTextToSearch() {
+        $page = $this->session->getPage();
+        $el = $page->find("css", "#search input[name=search]");
+        $el->setValue($this->search);
     }
 
     /**
      * @Given /^stop$/
      */
-    public function stop()
-    {
-        throw new PendingException();
+    public function stop() {
+        sleep(2000);
     }
 
     /**
      * @Then /^I should be shown these brands$/
      */
-    public function iShouldBeShownTheseBrands()
-    {
-        throw new PendingException();
+    public function iShouldBeShownTheseBrands() {
+		$page = $this->session->getPage();
+		if($page->find("css", "#brands li") === null) {
+			throw new Exception("No brand list items found");
+		}
     }
 
 }

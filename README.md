@@ -27,7 +27,18 @@ to set up the applications.
 
 ## Building
 
-- Compass
+You will need:
+
+- ANT for building
+- Composer for resolving PHP dependencies
+- Compass for building the CSS. 
+
+Copy the `ant.properties.dist` file and add in the required properties.
+
+**Note:** If you are running *nix, please update the build.xml to execute the 
+appropriate version of the executables (a Pull request would be appreciated). 
+
+Then run the ANT build
 
 ## Launching
 
@@ -49,8 +60,19 @@ have normally involved communication with the product manager.
 
 - Behat
 - Mink
-- Selenium Server
-- Jenkins
+- Mocha
+
+The tests are very brittle at the moment, there are some dependencies on the 
+structure of the page and dependencies on services outside of our control. 
+
+Individual components should be tested to work under all cases, for example what
+should happens when the searchextended service is down, the interface should be 
+resilient and respond appropriately to the user. The test will also be quite 
+slow as there is some waiting time. Given more time I would be inclined to 
+create a controllable mock service that can simulate timeouts, 
+non-responsiveness and unexpected responses and then integrate this with the 
+testing. With this control over the scenarios it is possible condense the 
+timings down to create some very high performance test suites.
 
 ## Developing
 
@@ -65,6 +87,3 @@ Some bugs found in the ION service:
   404 Not Found response. A 400 Bad Request is more accurate.
 
 Also, the format parameter wasn't in the documentation (other than the example).
-
-There is a tonne of error handling that isn't done and should be, for example
-what happens when the web service isn't responding, etc.

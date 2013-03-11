@@ -1,3 +1,84 @@
 <project name="swakefield-rmusic-767" default="build">
-		
+	
+	<target name="-init">
+		<property file="ant.properties"/>
+		<property name="composer-clean-abs" location="${composer-clean}"/>
+	</target>
+	
+	<!-- 
+	Apologies, I am using Windows so I haven't taken the care to write a *nix
+	derivative. Feel free to write a bash and add it here
+	-->
+	
+	<macrodef name="composer-clean">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="cmd" dir="@{dir}" osfamily="windows">
+				<arg line="/c ${composer-clean-abs}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="composer-install">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="cmd" dir="@{dir}" osfamily="windows">
+				<arg line="/c ${composer} install"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="compass-compile">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="${compass}" dir="@{dir}">
+				<arg line="compile"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="compass-clean">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="${compass}" dir="@{dir}">
+				<arg line="clean"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<target name="root.clean" depends="-init">
+		<composer-clean dir="."/>
+	</target>
+	
+	<target name="root.build" depends="root.clean">
+		<composer-install dir="."/>
+	</target>
+	
+	<target name="zend.clean" depends="-init">
+		<composer-clean dir="zend"/>
+	</target>
+	
+	<target name="zend.build" depends="zend.clean">
+		<composer-install dir="zend"/>
+	</target>
+	
+	<target name="jsapi.clean" depends="-init">
+		<composer-clean dir="jsapi"/>
+	</target>
+	
+	<target name="jsapi.build" depends="jsapi.clean">
+		<composer-install dir="jsapi"/>
+	</target>
+	
+	<target name="theme.clean" depends="-init">
+		<compass-clean dir="theme"/>
+	</target>
+	
+	<target name="theme.build" depends="theme.clean">
+		<compass-compile dir="theme"/>
+	</target>
+
+	<target name="clean" depends="theme.clean,jsapi.clean,zend.clean,root.clean"/>
+	<target name="build" depends="theme.build,jsapi.build,zend.build,root.build"/>
+	
 </project>

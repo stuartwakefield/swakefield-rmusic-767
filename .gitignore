@@ -6,3 +6,4 @@ jsapi/composer.lock
 jsapi/vendor
 vendor
 composer.lock
+ant.properties

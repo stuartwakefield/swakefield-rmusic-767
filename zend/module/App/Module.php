@@ -21,11 +21,11 @@ class Module {
         				, "options" => array
         					( "route"    => "/"
         					, "defaults" => array
-        						( "controller" => "home"
+        						( "controller" => "main"
         						, "action" => "home" ) ) ) ) )
       		, "controllers" => array
       			( "invokables" => array
-      				( "home" => 'App\Controller\HomeController' ) )
+      				( "main" => 'App\Controller\MainController' ) )
       		, "view_manager" => array
       			( "display_not_found_reason" => true
       			, "display_exceptions" => true
@@ -34,7 +34,7 @@ class Module {
       			, "exception_template" => "error"
       			, "template_map" => array
 		        	( "layout/layout" => __DIR__ . "/view/layout/main.phtml"
-		        	, "app/home/home" => __DIR__ . "/view/home.phtml"
+		        	, "app/main/home" => __DIR__ . "/view/home.phtml"
 		        	, "error/404" => __DIR__ . "/view/404.phtml"
 		        	, "error/error" => __DIR__ . "/view/error.phtml" )
 		        , "template_path_stack" => array

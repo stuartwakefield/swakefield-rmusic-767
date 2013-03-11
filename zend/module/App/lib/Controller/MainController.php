@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
-class HomeController extends AbstractActionController {
+class MainController extends AbstractActionController {
 	
     public function homeAction() {
 

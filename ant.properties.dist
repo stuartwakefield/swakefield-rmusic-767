@@ -1,0 +1,4 @@
+compass=/path/to/compass
+googlecc=/path/to/googlecc
+composer=/path/to/composer
+composer-clean=/path/to/composer-clean
