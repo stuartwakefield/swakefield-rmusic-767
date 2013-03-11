@@ -2,23 +2,13 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-use Behat\Mink\Driver\Selenium2Driver;
-use Behat\Mink\Session;
+use \Behat\Behat\Context\BehatContext;
+use \Behat\Mink\Driver\Selenium2Driver;
+use \Behat\Behat\Exception\PendingException;
 
-/**
- * Features context.
- */
+
 class FeatureContext extends BehatContext
 {
-
-    const HOME_URL = "http://rmusic-767.local/";
-
     private $session;
 
     /**
@@ -27,20 +17,19 @@ class FeatureContext extends BehatContext
      *
      * @param array $parameters context parameters (set them up through behat.yml)
      */
-    public function __construct(array $parameters)
-    {
+    public function __construct(array $parameters) {
         // Initialize your context here
-        $driver = new \Behat\Mink\Driver\Selenium2Driver("firefox", null);
-        $this->session = new \Behat\Mink\Session($driver);
-        $this->session->start();
+        $this->baseUrl = $parameters["base_url"];
+        $driver = new \Behat\Mink\Driver\Selenium2Driver($parameters["browser"], null);
+		$driver->start();
+        $this->session = $driver->getWebDriverSession();
     }
 
     /**
      * @Given /^I am on a web page$/
      */
-    public function iAmOnAWebPage()
-    {
-       $this->session->visit(self::HOME_URL);
+    public function iAmOnAWebPage() {
+    	$this->session->open($this->baseUrl);
     }
 
     /**
@@ -48,7 +37,7 @@ class FeatureContext extends BehatContext
      */
     public function iSubmitASearch()
     {
-        $this->session->
+        
     }
 
     /**

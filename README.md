@@ -19,9 +19,11 @@ to set up the applications.
   compositional approach that makes the most use out of the script based 
   invokation of PHP. By not centralising the architecture and instead sharing
   functionality and data through composition performance is far better but 
-  requires much more skill to keep this kind of application on the tracks. This
-  is in the directory `oo`. The other main application is a basic Zend 
-  application in the `zend` directory.
+  requires much more skill to keep this kind of application on the tracks as
+  the application grows. As a result this approach is a better fit for micro
+  applications and micro services approaches. This is in the directory `oo`. 
+  The other main application is a basic Zend application in the `zend` 
+  directory.
 
 ## Building
 

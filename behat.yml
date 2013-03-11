@@ -1,0 +1,16 @@
+default:
+  paths:
+    features:  features
+    bootstrap: features/bootstrap
+  context:
+    parameters:
+      base_url: http://swakefield-rmusic-767.local/oo
+      browser: firefox
+
+annotations:
+  paths:
+    features: features/annotations
+
+closures:
+  paths:
+    features: features/closures

@@ -4,3 +4,5 @@ zend/composer.lock
 zend/vendor
 jsapi/composer.lock
 jsapi/vendor
+vendor
+composer.lock
