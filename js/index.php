@@ -5,9 +5,7 @@ $lib = array
 	, "lib/backbone/backbone.min.js" );
 
 $src = array
-	( "src/collections/brand.js"
-	, "src/models/brand.js"
-	, "src/views/episode_list.js"
+	( "src/views/episode_list.js"
 	, "src/views/no_episode.js"
 	, "src/views/brand_list.js"
 	, "src/views/search_form.js"
