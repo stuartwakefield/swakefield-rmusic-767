@@ -1,0 +1,9 @@
+<project name="swakefield-rmusic-767" default="build">
+	
+	<target name="build">
+		<exec executable="sass.exe">
+			<arg line="theme/src/main.scss theme/main.css"/>
+		</exec>
+	</target>
+	
+</project>

@@ -5,12 +5,21 @@ class CurlSearchExtendedEndpoint {
 	
 	private $url;
 
+	/**
+	 * The constructor sets up the end point with the given url
+	 * @param $url the base URL of the web service
+	 */
 	function __construct($url) {
 
 		// Url example: http://www.bbc.co.uk/iplayer/ion/searchextended/
 		$this->url = $url;
 	}
 
+	/**
+	 * The request method creates a HTTP request for the predefined endpoint
+	 * and parses the response.
+	 * @param $path this is the path sent by the client
+	 */
 	function request($path) {
 		
 		// Need to ensure there is a single slash between this url and path

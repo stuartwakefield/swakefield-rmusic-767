@@ -1,5 +1,5 @@
 <?php
-require_once realpath(dirname(__FILE__) . "/../../lib/searchextended/SearchExtendedClient.php");
+require_once realpath(__DIR__ . "/../SearchExtendedClient.php");
 
 /**
  * This is a spy used to ensure that the client is passing the
@@ -11,19 +11,29 @@ class MockSearchExtendedEndpoint {
 
 	public $params;
 
+	/**
+	 * This request method is called by the client to invoke a
+	 * HTTP request, in this case the mock intercepts the request and
+	 * parses it into an array.
+	 * @param $path the request path the client sends 
+	 */
 	function request($path) {
 		$this->path = $path;
 
-		/* As it doesn't matter in which order the parameters are
-		 * passed and the ordering of the parameters cannot be 
-		 * guaranteed, parse the path into an associative array for 
+		/* It doesn't matter in which order the parameters are
+		 * passed and as the ordering of the parameters cannot be 
+		 * guaranteed parse the path into an associative array for 
 		 * assertion */
 		$params = array();
 		$items = explode("/", $path);
 		$count = count($items);
+		
+		// Loop through the pairs
 		for($index = 0; $index < $count; $index += 2) {
 			$params[$items[$index]] = $items[$index + 1];
 		}
+		
+		// Expose the parsed parameters
 		$this->params = $params;
 	}
 
@@ -39,16 +49,13 @@ class SearchExtendedClientTestCase extends PHPUnit_Framework_TestCase {
 		$this->client = new SearchExtendedClient($this->endpoint);
 	}
 
-	function testRequest() {
+	function testFormatParameterSent() {
 
-		$this->client->request(array
-			( "search_availability" => "any"
-			, "q" => "something" ));
+		$this->client->request(array());
 
-		// Check that the endpoint received the parameters
+		// Check that the endpoint received the parameters 
 		$this->assertEquals(array
-			( "search_availability" => "any"
-			, "q" => "something" ), $this->endpoint->params);
+			( "format" => "json" ), $this->endpoint->params);
 	}
 
 }

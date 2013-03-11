@@ -17,9 +17,6 @@ Run from the base directory
 
 	http://swakefield-rmusic767.local/pure
 	http://swakefield-rmusic767.local/zend
-	http://swakefield-rmusic767.local/symfony
-	http://swakefield-rmusic767.local/codeigniter
-	http://swakefield-rmusic767.local/slim
 
 ## Testing
 

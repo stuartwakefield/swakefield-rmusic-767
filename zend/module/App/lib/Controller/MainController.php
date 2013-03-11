@@ -9,4 +9,8 @@ class HomeController extends AbstractActionController {
 
     }
 	
+	public function searchAction() {
+		
+	}
+	
 }

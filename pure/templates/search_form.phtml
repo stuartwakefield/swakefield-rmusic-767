@@ -1,7 +1,9 @@
 <form action="<?php echo $args->form->url ?>" method="get">
+	<button type="submit"><?php echo $args->content->button ?></button>
 	<label>
 		<?php echo $args->content->label ?>
 		<input type="text" name="<?php echo $args->form->arg ?>" placeholder="<?php echo $args->content->placeholder ?>"/>
+		<ul id="brands"></ul>
 	</label>
-	<button type="submit"><?php echo $args->content->button ?></button>
+	
 </form>
