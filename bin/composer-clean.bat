@@ -1,7 +1,6 @@
 @echo off
 :: Missing clean in composer project
 
-set cwd=%~dp0
 set vendor_dir="vendor"
 set composer_lock_file="composer.lock"
 

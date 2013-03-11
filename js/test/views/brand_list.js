@@ -1,11 +1,10 @@
-var assert = require("assert");
-
 describe("BrandListView", function() {
 	
 	// update
 	it("should contain child items when updated with results", function() {
-		var view = new BrandListView(document.createElement("ul"));
-		view
+		var el = document.createElement("ul");
+		var view = new BrandListView(
+			{ el: el });
 	});
 	
 	// click li > brandSelected

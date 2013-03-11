@@ -1,0 +1,6 @@
+{ "name" : 
+	"swakefield-rmusic-767"
+, "version" :
+	"1.0.0"
+, "devDependencies" : 
+	{ "mocha" : "*" } }

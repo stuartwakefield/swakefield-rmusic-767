@@ -3,6 +3,7 @@
 	<target name="-init">
 		<property file="ant.properties"/>
 		<property name="composer-clean-abs" location="${composer-clean}"/>
+		<property name="npm-clean-abs" location="${npm-clean}"/>
 	</target>
 	
 	<!-- 
@@ -46,6 +47,24 @@
 		</sequential>
 	</macrodef>
 	
+	<macrodef name="npm-clean">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="cmd" dir="@{dir}" osfamily="windows">
+				<arg line="/c ${npm-clean-abs}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="npm-install">
+		<attribute name="dir"/>
+		<sequential>
+			<exec executable="cmd" dir="@{dir}" osfamily="windows">
+				<arg line="/c ${npm} install"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
 	<target name="root.clean" depends="-init">
 		<composer-clean dir="."/>
 	</target>
@@ -77,8 +96,23 @@
 	<target name="theme.build" depends="theme.clean">
 		<compass-compile dir="theme"/>
 	</target>
+	
+	<target name="js.clean" depends="-init">
+		<npm-clean dir="js"/>
+	</target>
+	
+	<target name="js.build" depends="js.clean">
+		<npm-install dir="js"/>
+	</target>
+	
+	<target name="js.test" depends="-init">
+		<exec executable="${mocha-phantomjs}" dir="js" output="reports/js-mocha.json">
+			<env key="path" path="${mocha-phantomjs-path}"/>
+			<arg line="-R json test/test.html"/>
+		</exec>
+	</target>
 
-	<target name="clean" depends="theme.clean,jsapi.clean,zend.clean,root.clean"/>
-	<target name="build" depends="theme.build,jsapi.build,zend.build,root.build"/>
+	<target name="clean" depends="js.clean,theme.clean,jsapi.clean,zend.clean,root.clean"/>
+	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,root.build"/>
 	
 </project>
