@@ -76,7 +76,7 @@ best that these are installed globally using the PEAR package manager.
 To install Behat and mink, execute the following commands:
 
 		pear channel-discover pear.behat.org
-		pear channel-discover pear.symfony.org
+		pear channel-discover pear.symfony.com
 		pear install -a behat/behat behat/mink
 	
 - Mocha
