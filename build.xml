@@ -131,7 +131,7 @@
 	</target>
 	
 	<target name="clean" depends="js.clean,theme.clean,jsapi.clean,zend.clean,root.clean"/>
-	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,root.build"/>
-	<target name="test" depends="js.test"/>
+	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,root.build,test"/>
+	<target name="test" depends="js.test,searchextended.test"/>
 	
 </project>
