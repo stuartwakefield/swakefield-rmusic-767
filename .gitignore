@@ -1,4 +1,6 @@
-symfony/**/*
-codeigniter/**/*
-slim/**/*
-bin
+theme/.sass-cache
+theme/build/*
+zend/composer.lock
+zend/vendor
+jsapi/composer.lock
+jsapi/vendor

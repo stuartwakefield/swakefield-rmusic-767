@@ -1,21 +1,40 @@
 # Radio & Music Programme Finder
 
 You will need to install Composer http://getcomposer.org/doc/00-intro.md, run
-the following command at the base directory.
+the command `composer install` for the directories `zend`, `jsapi`.
 
-	composer install
+The Apache configuration file is in the `config` directory, you can use this
+to set up the applications.
 
-Run from the base directory
-
-	php deps/composer.phar install
+- The JS API. This is where the JavaScript layer in the application sends Ajax
+  requests. This application is a tiny application written in Slim and uses the
+  searchextended client in the `lib` directory.
+- The searchextended client is a basic client that consumes the searchextended
+  web service it is located in `lib/searchextended`
+- The `theme` directory contains all of the stylesheets for the application,
+  these are written using SASS and Compass.
+- The `js` directory contains the JavaScript Ajax application, it is written
+  using Backbone.
+- There are two versions of the main application, there is an object-oriented
+  compositional approach that makes the most use out of the script based 
+  invokation of PHP. By not centralising the architecture and instead sharing
+  functionality and data through composition performance is far better but 
+  requires much more skill to keep this kind of application on the tracks. This
+  is in the directory `oo`. The other main application is a basic Zend 
+  application in the `zend` directory.
 
 ## Building
 
-...?
+- Compass
 
 ## Launching
 
-	http://swakefield-rmusic767.local/pure
+Once Apache is set up, either go to...
+
+	http://swakefield-rmusic767.local/oo
+
+Or...
+	
 	http://swakefield-rmusic767.local/zend
 
 ## Testing
