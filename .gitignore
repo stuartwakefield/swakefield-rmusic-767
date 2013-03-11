@@ -8,4 +8,3 @@ js/node_modules
 vendor
 composer.lock
 ant.properties
-reports/*
