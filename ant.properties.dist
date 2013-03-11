@@ -6,3 +6,4 @@ npm=/path/to/npm
 npm-clean=/path/to/npm-clean
 mocha-phantomjs=/path/to/mocha-phantomjs
 mocha-phantomjs-path=/path/to/phantomjs;/path/to/nodejs
+phpunit=/path/to/phpunit

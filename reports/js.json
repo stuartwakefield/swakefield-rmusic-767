@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2013-03-11T21:21:15.430Z",
+    "end": "2013-03-11T21:21:15.472Z",
+    "duration": 42
+  },
+  "tests": [
+    {
+      "title": "should contain child items when updated with results",
+      "fullTitle": "BrandListView should contain child items when updated with results",
+      "duration": 3
+    },
+    {
+      "title": "should trigger brandSelected when child item clicked",
+      "fullTitle": "BrandListView should trigger brandSelected when child item clicked",
+      "duration": 0
+    }
+  ],
+  "failures": [],
+  "passes": [
+    {
+      "title": "should contain child items when updated with results",
+      "fullTitle": "BrandListView should contain child items when updated with results",
+      "duration": 3
+    },
+    {
+      "title": "should trigger brandSelected when child item clicked",
+      "fullTitle": "BrandListView should trigger brandSelected when child item clicked",
+      "duration": 0
+    }
+  ]
+}

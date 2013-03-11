@@ -73,6 +73,16 @@
 		<composer-install dir="."/>
 	</target>
 	
+	<target name="oo.test" depends="-init">
+	
+	</target>
+	
+	<target name="searchextended.test" depends="-init">
+		<exec executable="${phpunit}" dir=".">
+			<arg line="--log-json reports/searchextended.json lib/searchextended/test"/>
+		</exec>
+	</target>
+	
 	<target name="zend.clean" depends="-init">
 		<composer-clean dir="zend"/>
 	</target>
@@ -81,12 +91,20 @@
 		<composer-install dir="zend"/>
 	</target>
 	
+	<target name="zend.test" depends="zend.build">
+	
+	</target>
+	
 	<target name="jsapi.clean" depends="-init">
 		<composer-clean dir="jsapi"/>
 	</target>
 	
 	<target name="jsapi.build" depends="jsapi.clean">
 		<composer-install dir="jsapi"/>
+	</target>
+	
+	<target name="jsapi.test" depends="jsapi.build">
+		
 	</target>
 	
 	<target name="theme.clean" depends="-init">
@@ -106,13 +124,14 @@
 	</target>
 	
 	<target name="js.test" depends="-init">
-		<exec executable="${mocha-phantomjs}" dir="js" output="reports/js-mocha.json">
+		<exec executable="${mocha-phantomjs}" dir="js" output="reports/js.json">
 			<env key="path" path="${mocha-phantomjs-path}"/>
 			<arg line="-R json test/test.html"/>
 		</exec>
 	</target>
-
+	
 	<target name="clean" depends="js.clean,theme.clean,jsapi.clean,zend.clean,root.clean"/>
 	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,root.build"/>
+	<target name="test" depends="js.test"/>
 	
 </project>
