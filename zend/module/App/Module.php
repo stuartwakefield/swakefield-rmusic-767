@@ -33,8 +33,11 @@ class Module {
       			, "not_found_template" => "404"
       			, "exception_template" => "error"
       			, "template_map" => array
-		        	( "layout/layout" => __DIR__ . "/view/layout/main.phtml"
-		        	, "app/main/home" => __DIR__ . "/view/home.phtml"
+		        	( "layout/main" =>  __DIR__ . "/../../../app/layouts/main.phtml"
+		        	, "home" => __DIR__ . "/../../../app/templates/home.phtml"
+		        	, "result/item" => __DIR__ . "/../../../app/templates/result_item.phtml"
+		        	, "result/list" => __DIR__ . "/../../../app/templates/result_list.phtml"
+		        	, "search/form" => __DIR__ . "/../../../app/templates/search_form.phtml"
 		        	, "error/404" => __DIR__ . "/view/404.phtml"
 		        	, "error/error" => __DIR__ . "/view/error.phtml" )
 		        , "template_path_stack" => array

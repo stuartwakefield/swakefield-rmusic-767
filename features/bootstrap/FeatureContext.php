@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use \Behat\Behat\Context\BehatContext;
-use \Behat\Mink\Driver\Selenium2Driver;
-use \Behat\Behat\Exception\PendingException;
+use Behat\Behat\Context\BehatContext
+  , Behat\Mink\Driver\Selenium2Driver
+  , Behat\Behat\Exception\PendingException;
 
 /**
  * 

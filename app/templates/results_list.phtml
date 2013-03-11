@@ -1,0 +1,11 @@
+<p>Displaying 
+	<?php echo $this->pagination->startIndex ?> - 
+	<?php echo $this->pagination->endIndex ?> of 
+	<?php echo $this->pagination->count ?></p>
+<p>Page 
+	<?php echo $this->pagination->page ?> of 
+	<?php echo $this->pagination->pageCount ?></p>
+<?php foreach($this->pages as $page) : ?>
+	<a href="<?php echo $page->link ?>"><?php echo $page->name ?></a>
+<?php endforeach ?>
+<ul><?php echo $this->items ?></ul>

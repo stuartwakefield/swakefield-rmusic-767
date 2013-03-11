@@ -8,9 +8,9 @@ require_once "handlers/SearchHandler.php";
 $searchExtendedFactory = new SearchExtendedFactory();
 $searchExtendedClient = $searchExtendedFactory->createClient();
 
-$mainLayoutTemplate = new Template("layouts/main.phtml");
-$searchResultItemTemplate = new Template("templates/result_item.phtml");
-$searchResultListTemplate = new Template("templates/results_list.phtml");
+$mainLayoutTemplate = new Template(__DIR__ . "/../app/layouts/main.phtml");
+$searchResultItemTemplate = new Template(__DIR__ . "/../app/templates/result_item.phtml");
+$searchResultListTemplate = new Template(__DIR__ . "/../app/templates/results_list.phtml");
 
 $searchResultsItemView = new SearchResultsItemView($searchResultItemTemplate);
 $searchResultsView = new SearchResultsView($searchResultListTemplate, $searchResultsItemView);

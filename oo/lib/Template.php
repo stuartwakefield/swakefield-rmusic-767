@@ -1,4 +1,6 @@
 <?php
+require_once "TemplateContext.php";
+
 class Template {
 	
 	private $page;
@@ -8,9 +10,11 @@ class Template {
 	}
 
 	function render($args) {
-		ob_start();
-		include $this->page;
-		return ob_get_clean();
+		$context = new TemplateContext();
+		foreach($args as $name => $value) {
+			$context->$name = $value;
+		}
+		return $context->render($this->page);
 	}
 
 }
