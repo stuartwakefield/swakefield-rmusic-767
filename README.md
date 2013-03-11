@@ -65,3 +65,6 @@ Some bugs found in the ION service:
   404 Not Found response. A 400 Bad Request is more accurate.
 
 Also, the format parameter wasn't in the documentation (other than the example).
+
+There is a tonne of error handling that isn't done and should be, for example
+what happens when the web service isn't responding, etc.

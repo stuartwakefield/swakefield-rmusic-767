@@ -55,4 +55,15 @@ $app->get("/search/:search", function($search) use($app) {
 		
 });
 
+$app->get("/brand/:id", function($id) use($app) {
+	
+	$factory = new SearchExtendedFactory();
+	$client = $factory->createClient();
+	
+	$res = $app->response();
+	
+	$res["Content-Type"] = "application/json";
+	
+});
+
 $app->run();

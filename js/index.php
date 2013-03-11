@@ -7,6 +7,8 @@ $lib = array
 $src = array
 	( "src/collections/brand.js"
 	, "src/models/brand.js"
+	, "src/views/episode_list.js"
+	, "src/views/no_episode.js"
 	, "src/views/brand_list.js"
 	, "src/views/search_form.js"
 	, "src/views/app.js"

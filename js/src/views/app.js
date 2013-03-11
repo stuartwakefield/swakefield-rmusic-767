@@ -10,6 +10,12 @@ var AppView = Backbone.View.extend({
 		this.brands = new BrandListView(
 			{ el: this.$el.find("#brands") });
 		
+		this.episodes = new EpisodeListView(
+			{ el: this.$el.find("#episodes") });
+		
+		this.noEpisodes = new NoEpisodeView(
+			{ el: this.$el.find("#no-episodes") });
+		
 		var me = this;
 		this.search.on("suggestSearch", function(value) {
 			$.getJSON("/jsapi/suggest/" + encodeURIComponent(value), function(results) {
@@ -24,13 +30,21 @@ var AppView = Backbone.View.extend({
 		});
 		
 		this.on("suggestSearchResults", function(results) {
-			this.brands.update(results);
+			me.brands.update(results);
 		});
 		
 		this.brands.on("brandSelected", function(id) {
 			$.getJSON("/jsapi/brand/" + encodeURIComponent(id), function(results) {
 				me.trigger("brandResults", results);
 			});
+		});
+		
+		this.on("episodeSearchResults", function(results) {
+			me.episodes.update(results);
+		});
+		
+		this.on("episodeSearchResults", function(results) {
+			me.noEpisodes.update(results);
 		});
 		
 	}

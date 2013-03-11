@@ -6,6 +6,7 @@ var SearchFormView = Backbone.View.extend({
 	
 	initialize: function() {
 		this.field = this.$el.find(":input[name=search]");
+		this.field.attr("autocomplete", "off");
 	},
 	
 	clearTimeout: function() {
@@ -20,7 +21,7 @@ var SearchFormView = Backbone.View.extend({
 		var me = this;
 		this.timeout = setTimeout(function() {
 			me.trigger("suggestSearch", me.field.val());
-		}, 3000);
+		}, 1500);
 	},
 	
 	search: function(e) {
