@@ -1,5 +1,6 @@
-<form action="<?php echo $this->form->url ?>" method="get">
+<form action="<?php echo $this->form->url ?>" method="get" role="search">
 	<input type="text" name="<?php echo $this->form->arg ?>" placeholder="<?php echo $this->content->placeholder ?>"/>
+	<span id="brands-loading"></span>
 	<button type="submit"><?php echo $this->content->button ?></button>
 	<ul id="brands"></ul>
 </form>

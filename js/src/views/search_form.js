@@ -18,10 +18,21 @@ var SearchFormView = Backbone.View.extend({
 	
 	waitAndSearch: function() {
 		this.clearTimeout();
-		var me = this;
-		this.timeout = setTimeout(function() {
-			me.trigger("suggestSearch", me.field.val());
-		}, 1500);
+		if(this.field.val().length) {
+			var me = this;
+			this.timeout = setTimeout(function() {
+				me.suggestSearch();
+			}, 500);
+		} else {
+			this.trigger("searchBlank");
+		}
+		this.trigger("searchChanged", this.field.val());
+	},
+	
+	suggestSearch: function() {
+		if(this.field.val().length) {
+			this.trigger("suggestSearch", this.field.val());
+		}
 	},
 	
 	search: function(e) {

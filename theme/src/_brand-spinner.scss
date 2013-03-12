@@ -1,0 +1,45 @@
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+#brands-loading {
+	background: url("loading-spinner.png") center center no-repeat;
+	width: 22px;
+	height: 22px;
+	display: block;
+	position: absolute;
+	top: 62px;
+	left: 440px;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+	@include transition
+		( visibility 0s linear 0.25s 
+		, opacity 0.25s linear );
+}
+#brands-loading.shown {
+	opacity: 1;
+	visibility: visible;
+	@include transition-delay(0);
+}
+@media screen and (max-width: 660px) {
+	#brands-loading {
+		top: 19px;
+		right: 76px;
+		left: auto;
+	}
+}
