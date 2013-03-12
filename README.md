@@ -117,8 +117,8 @@ Some bugs found in the ION service:
 - The response contains one additional item in the block list than the submitted
   perpage attribute, i.e. perpage/10 actually returns 11 results.
 - Omitting the required search_availability attribute produces an internal error
-  which leaks some information about the server file system, it also produces a
-  404 Not Found response. A 400 Bad Request is more accurate.
+  which leaks some information about the server file system. It also produces a
+  404 Not Found response, suggest to replace with a 400 Bad Request.
 
 Also, the format parameter wasn't in the documentation (other than the example).
 
