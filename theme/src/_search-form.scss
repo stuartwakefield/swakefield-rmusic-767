@@ -1,9 +1,7 @@
 #search {
-	max-width: 400px;
-	margin: 40px auto;
-	background: #333;
-	color: #eee;
-	padding: 20px;
-	border: 1px solid #222;
-	@include box-shadow(0 2px 4px rgba(0,0,0,0.5));
+	background: url("search-bg.png") center top no-repeat;
+	height: 60px;
+	width: 420px;
+	padding: 42px 120px 94px;
+	margin: 20px auto;
 }

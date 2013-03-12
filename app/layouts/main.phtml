@@ -3,9 +3,21 @@
 	<head>
 		<title>BBC Radio &amp; Music Programme Finder</title>
 		<link rel="stylesheet" href="/theme/main.css"/>
-		<script src="/js"></script>
+		<script src="/js/main.js"></script>
 	</head>
 	<body>
-		<div><?php echo $this->content ?></div>
+		<header id="masthead">
+			<div id="masthead-inner">
+				<a id="logo" href="http://www.bbc.co.uk">
+					<img src="/img/bbc-logo.png" alt="BBC" width="84" height="24"/>
+				</a>
+			</div>
+		</header>
+		<div id="main">
+			<div id="iplayer-radio">
+				<img src="/img/iplayer-radio-logo.png" alt="iPlayer Radio" width="231" height="40"/>
+			</div>
+			<?php echo $this->content ?>
+		</div>
 	</body>
 </html>

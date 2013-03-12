@@ -109,10 +109,16 @@
 	
 	<target name="theme.clean" depends="-init">
 		<compass-clean dir="theme"/>
+		<delete>
+			<fileset dir="theme/build" includes="*.png,*.jpg"/>
+		</delete>
 	</target>
 	
 	<target name="theme.build" depends="theme.clean">
 		<compass-compile dir="theme"/>
+		<copy todir="theme/build">
+			<fileset dir="theme/img" includes="*.png,*.jpg"/>
+		</copy>
 	</target>
 	
 	<target name="js.clean" depends="-init">

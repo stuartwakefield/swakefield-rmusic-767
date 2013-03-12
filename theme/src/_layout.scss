@@ -1,0 +1,29 @@
+#masthead {
+	border-bottom: 1px solid #ccc;
+	border-bottom-color: rgba(0,0,0,0.2);
+	height: 40px;
+}
+#masthead-inner {
+	width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+#logo {
+	padding: 8px;
+	float: left;
+}
+#logo > img {
+	display: block;
+}
+#main {
+	width: 980px;
+	margin: 0 auto;
+}
+#iplayer-radio {
+	position: relative;
+}
+#iplayer-radio > img {
+	position: absolute;
+	top: 50px;
+	left: 10px;
+}

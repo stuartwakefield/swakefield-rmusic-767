@@ -5,23 +5,34 @@ body {
 	@include establish-baseline($font-size);
 	font-family: $font-family;
 	margin: 0;
-	background: #555;
-	color: #eee;
+	background: #fff;
+	color: #333;
 }
 input[type=text] {
 	font-size: 1em;
 	font-family: $font-family;
-	padding: 10px;
-	border: 1px solid #222;
-	@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.2));
-	width: 240px;
-	margin-left: 10px;
+	padding: 5px;
+	border: 1px solid #ddd;
+	@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.1));
+	width: 320px;
+	margin: 15px 18px;
+	margin-right: 0;
+}
+input[type=text]:focus {
+	outline: 0;
+	border: 1px solid #aaa;
+	@include box-shadow(0 0 8px rgba(204,204,204,0.25));
 }
 button {
-	padding: 10px 20px;
-	font-size: 1em;
-	font-family: $font-family;
-	background: #969;
-	border: 1px solid #303;
 	float: right;
+	padding: 5px 10px;
+	font-size: 1em;
+	margin: 15px 18px;
+	margin-left: 0;
+	font-family: $font-family;
+	border: 1px solid #aaa;
+	background: #ccc;
+	@include background(linear-gradient(top, #ccc, #bbb));
+	@include box-shadow(inset 0 1px 0 rgba(255,255,255,0.4));
+	cursor: pointer;
 }
