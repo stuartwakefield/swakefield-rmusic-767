@@ -25,14 +25,25 @@ input[type=text]:focus {
 }
 button {
 	float: right;
-	padding: 5px 10px;
+	padding: 5px 0;
 	font-size: 1em;
 	margin: 15px 18px;
 	margin-left: 0;
 	font-family: $font-family;
 	border: 1px solid #aaa;
 	background: #ccc;
-	@include background(linear-gradient(top, #ccc, #bbb));
+	text-indent: -999px;
+	width: 40px;
+	overflow: hidden;
+	@include background(
+		url("search-button-icon.png") center 3px no-repeat,
+		linear-gradient(top, #ccc, #bbb));
 	@include box-shadow(inset 0 1px 0 rgba(255,255,255,0.4));
 	cursor: pointer;
+}
+button:hover {
+	@include background(
+		url("search-button-icon.png") center 3px no-repeat,
+		linear-gradient(top, #ccc, #999));
+	border: 1px solid #888;
 }
