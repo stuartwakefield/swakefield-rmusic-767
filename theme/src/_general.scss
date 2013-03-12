@@ -36,6 +36,7 @@ button {
 	text-indent: -999px;
 	width: 40px;
 	overflow: hidden;
+	background: #ccc url("search-button-icon.png") center 3px no-repeat;
 	@include background(
 		url("search-button-icon.png") center 3px no-repeat,
 		linear-gradient(top, #ccc, #bbb));

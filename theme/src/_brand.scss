@@ -15,6 +15,7 @@
 	}
 }
 #brands {
+	display: none;
 	font-size: 13px;
 	list-style: none;
 	background: #eee;
@@ -23,14 +24,8 @@
 	position: relative;
 	margin-right: 50px;
 	@include box-shadow(0 2px 4px rgba(0,0,0,0.1));
-	opacity: 0;
-	visibility: hidden;
 	@include transform(translate(0, -10px));
-	@include transition
-		( visibility 0s linear 0.25s
-		, transform 0.25s linear
-		, opacity 0.25s linear);
-	pointer-events: none;
+	@include transition(transform 0.25s linear);
 }
 #brands > li {
 	white-space: nowrap;
@@ -40,11 +35,7 @@
 	background: url("suggestion-bullet.png") left no-repeat;
 }
 #brands.shown {
-	opacity: 1;
-	visibility: visible;
 	@include transform(translate(0, 0));
-	@include transition-delay(0);
-	pointer-events: all;
 }
 #brands::before
 , #brands::after {
@@ -68,26 +59,16 @@
 	margin-left: -10px;
 }
 #brands-loading {
+	display: none;
 	background: url("loading-spinner.png") center center no-repeat;
 	width: 22px;
 	height: 22px;
-	display: block;
 	position: absolute;
 	top: 62px;
 	left: 442px;
-	opacity: 0;
-	visibility: hidden;
 	pointer-events: none;
 	-webkit-animation: spin 1s linear infinite;
 	animation: spin 1s linear infinite;
-	@include transition
-		( visibility 0s linear 0.25s 
-		, opacity 0.25s linear );
-}
-#brands-loading.shown {
-	opacity: 1;
-	visibility: visible;
-	@include transition-delay(0);
 }
 @media screen and (max-width: 660px) {
 	#brands-loading {

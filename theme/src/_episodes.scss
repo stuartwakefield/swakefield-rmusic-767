@@ -40,21 +40,15 @@
 	cursor: pointer;
 }
 #no-episodes {
-	visibility: hidden;
-	opacity: 0;
+	display: none;
 	padding: 20px;
 	background: #fee;
 	color: #300;
 	width: 380px;
 	margin: 0 auto;
-	@include transition(visibility 0s linear 0.25s, opacity 0.25s linear);
-}
-#no-episodes.show {
-	visibility: visible;
-	opacity: 1;
-	@include transition(visibility 0s linear 0s, opacity 0.25s linear);
 }
 #episodes-loading {
+	display: none;
 	position: absolute;
 	top: 300px;
 	left: 50%;
@@ -63,20 +57,10 @@
 	text-align: center;
 	color: #b2b2b2;
 	padding: 70px 20px 20px;
-	opacity: 0;
-	visibility: hidden;
 	pointer-events: none;
 	@include box-shadow(0 1px 2px rgba(0,0,0,0.1));
-	@include transition
-		( visibility 0s linear 0.25s 
-		, opacity 0.25s linear );
 	border: 1px solid #ddd;
 	background: #eee;
-}
-#episodes-loading.shown {
-	opacity: 1;
-	visibility: visible;
-	@include transition-delay(0);
 }
 #episodes-loading-1
 , #episodes-loading-2

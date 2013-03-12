@@ -35,11 +35,11 @@ var EpisodeListView = Backbone.View.extend({
 	},
 	
 	hideNoResultsMessage: function() {
-		this.noResultsMessage.removeClass("show");
+		this.noResultsMessage.stop(true, true).removeClass("shown").fadeOut();
 	},
 	
 	displayNoResultsMessage: function() {
-		this.noResultsMessage.addClass("show");
+		this.noResultsMessage.stop(true, true).addClass("shown").fadeIn();
 	},
 	
 	displayError: function() {

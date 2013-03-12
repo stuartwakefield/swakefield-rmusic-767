@@ -8,7 +8,7 @@ var AppView = Backbone.View.extend({
 		
 		this.$el.addClass("app-engaged");
 		this.endPoint = "/jsapi";
-		this.endPoint = "/";
+	//	this.endPoint = "/";
 		
 		var me = this;
 		
@@ -24,11 +24,11 @@ var AppView = Backbone.View.extend({
 		this.listenTo(this.search, "brand-search", this.loadBrands);
 		
 		this.listenTo(this.search, "brand-search", function(value) {
-			spinner.addClass("shown");
+			spinner.stop(true, true).addClass("shown").fadeIn();
 		});
 		
 		this.listenTo(this, "brand-complete", function() {
-			spinner.removeClass("shown");
+			spinner.stop(true, true).removeClass("shown").fadeOut();
 		});
 		
 		this.listenTo(this, "brand-error", this.displayError);
@@ -36,11 +36,11 @@ var AppView = Backbone.View.extend({
 		this.listenTo(this.search, "episode-search", this.loadEpisodes);
 		
 		this.listenTo(this.search, "episode-search", function() {
-			loading.addClass("shown");
+			loading.stop(true, true).addClass("shown").fadeIn();
 		});
 		
 		this.listenTo(this, "episode-complete", function() {
-			loading.removeClass("shown");
+			loading.stop(true, true).removeClass("shown").fadeOut();
 		});
 		
 		this.listenTo(this, "episode-error", this.displayError);

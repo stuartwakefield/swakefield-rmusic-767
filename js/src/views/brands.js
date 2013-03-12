@@ -20,11 +20,11 @@ var BrandListView = Backbone.View.extend({
 	},
 	
 	show: function() {
-		this.$el.addClass("shown");
+		this.$el.stop(true, true).addClass("shown").fadeIn();
 	},
 	
 	hide: function() {
-		this.$el.removeClass("shown");
+		this.$el.stop(true, true).removeClass("shown").fadeOut();
 	},
 	
 	selectBrand: function(event) {
