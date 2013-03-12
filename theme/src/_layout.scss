@@ -28,6 +28,16 @@
 	left: 10px;
 	z-index: 9;
 }
+#error {
+	position: absolute;
+	display: none;
+	background: #f66;
+	padding: 20px;
+	color: #fec;
+	left: 0;
+	top: 0;
+	right: 0;
+}
 @media screen and (max-width: 980px) {
 	#masthead-inner
 	, #main {
@@ -37,6 +47,7 @@
 		position: static;
 		text-align: center;
 		margin: 20px;
+		margin-bottom: 0;
 	}
 	#iplayer-radio > img {
 		position: static;

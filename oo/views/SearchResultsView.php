@@ -4,11 +4,17 @@ class SearchResultsView {
 	private $template;
 	private $itemView;
 
-	function __construct($template, $itemView) {
+	function __construct($url, $arg, $template, $itemView) {
 		$this->template = $template;
 		$this->itemView = $itemView;
 	}
 
+	/**
+	 * Calculates the pagination variables from the pagination data received
+	 * from the searchextended client.
+	 * @param $pagination the pagination data received
+	 * @return            the calculated pagination data
+	 */
 	static function calculatePagination($pagination) {
 		$page = $pagination->page;
 		$pageSize = $pagination->per_page;
@@ -28,8 +34,11 @@ class SearchResultsView {
 			, "visibleCount" => $visibleCount );
 	}
 
+	/**
+	 * Creates the links for the pagination navigation
+	 */
 	static function createPageLink($search, $page, $pageSize) {
-		return "search?search={$search}&page={$page}&count={$pageSize}";
+		return "{$this->url}?{$this->arg}={$search}&page={$page}&count={$pageSize}";
 	}
 
 	function render($args) {

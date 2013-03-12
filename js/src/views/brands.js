@@ -29,7 +29,11 @@ var BrandListView = Backbone.View.extend({
 	
 	selectBrand: function(event) {
 		var $target = $(event.target);
-		this.trigger("brandSelected", $target.data("id"));
+		this.trigger("brand-selected", $target.data("id"));
+	},
+	
+	displayError: function() {
+		console.log("Brand error");
 	}
 	
 });

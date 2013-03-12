@@ -24,14 +24,14 @@ var SearchFormView = Backbone.View.extend({
 				me.suggestSearch();
 			}, 500);
 		} else {
-			this.trigger("searchBlank");
+			this.trigger("search-blank");
 		}
-		this.trigger("searchChanged", this.field.val());
+		this.trigger("search-changed", this.field.val());
 	},
 	
 	suggestSearch: function() {
 		if(this.field.val().length) {
-			this.trigger("suggestSearch", this.field.val());
+			this.trigger("brand-search", this.field.val());
 		}
 	},
 	
@@ -39,7 +39,7 @@ var SearchFormView = Backbone.View.extend({
 		e.preventDefault();
 		e.stopPropagation();
 		this.clearTimeout();
-		this.trigger("episodeSearch", this.field.val());
+		this.trigger("episode-search", this.field.val());
 	}
 	
 });

@@ -65,14 +65,6 @@
 		</sequential>
 	</macrodef>
 	
-	<target name="root.clean" depends="-init">
-		<composer-clean dir="."/>
-	</target>
-	
-	<target name="root.build" depends="root.clean">
-		<composer-install dir="."/>
-	</target>
-	
 	<target name="oo.test" depends="-init">
 	
 	</target>
@@ -136,8 +128,8 @@
 		</exec>
 	</target>
 	
-	<target name="clean" depends="js.clean,theme.clean,jsapi.clean,zend.clean,root.clean"/>
-	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,root.build,test"/>
+	<target name="clean" depends="js.clean,theme.clean,jsapi.clean,zend.clean"/>
+	<target name="build" depends="js.build,theme.build,jsapi.build,zend.build,test"/>
 	<target name="test" depends="js.test,searchextended.test"/>
 	
 </project>

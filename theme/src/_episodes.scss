@@ -3,7 +3,7 @@
 		-webkit-transform: translate(0, 0);
 	}
 	16.667% {
-		-webkit-transform: translate(0, -10px);
+		-webkit-transform: translate(0, -5px);
 	}
 	33.333% {
 		-webkit-transform: translate(0, 0);
@@ -14,29 +14,64 @@
 		transform: translate(0, 0);
 	}
 	16.667% {
-		transform: translate(0, -10px);
+		transform: translate(0, -5px);
 	}
 	33.333% {
 		transform: translate(0, 0);
 	}
+}
+#episodes-list {
+	width: 400px;
+	margin: 0 auto;
+	list-style: none;
+	padding: 0;
+	font-size: 13px;
+}
+#episodes-list > li {
+	padding: 20px;
+	border-bottom: 1px solid #eee;
+	@include transition
+		( background 0.25s ease-in-out
+		, color 0.25s ease-in-out );
+}
+#episodes-list > li:hover {
+	background: #FA479A;
+	color: #FFF;
+	cursor: pointer;
+}
+#no-episodes {
+	visibility: hidden;
+	opacity: 0;
+	padding: 20px;
+	background: #fee;
+	color: #300;
+	width: 380px;
+	margin: 0 auto;
+	@include transition(visibility 0s linear 0.25s, opacity 0.25s linear);
+}
+#no-episodes.show {
+	visibility: visible;
+	opacity: 1;
+	@include transition(visibility 0s linear 0s, opacity 0.25s linear);
 }
 #episodes-loading {
 	position: absolute;
 	top: 300px;
 	left: 50%;
 	width: 80px;
-	margin-left: -50px;
+	margin-left: -60px;
 	text-align: center;
 	color: #b2b2b2;
-	padding: 60px 10px 10px;
+	padding: 70px 20px 20px;
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+	@include box-shadow(0 1px 2px rgba(0,0,0,0.1));
 	@include transition
 		( visibility 0s linear 0.25s 
 		, opacity 0.25s linear );
-	border: 1px solid #eee;
-	background: #fff;
+	border: 1px solid #ddd;
+	background: #eee;
 }
 #episodes-loading.shown {
 	opacity: 1;
@@ -48,7 +83,7 @@
 , #episodes-loading-3 {
 	display: block;
 	position: absolute;
-	top: 10px;
+	top: 20px;
 	-webkit-animation: boing 1s linear infinite;
 	animation: boing 1s linear infinite;
 }
@@ -68,10 +103,10 @@
 	animation-delay: 0.25s;
 }
 #episodes-loading-1 {
-	left: 10px;
+	left: 20px;
 }
 #episodes-loading-3 {
-	right: 10px;
+	right: 20px;
 	-webkit-animation-delay: 0.5s;
 	animation-delay: 0.5s;
 }

@@ -6,6 +6,11 @@
 	margin: 20px auto;
 	position: relative;
 }
+@media screen and (max-width: 980px) {
+	#search {
+		margin-top: 0;
+	}
+}
 @media screen and (max-width: 660px) {
 	#search {
 		width: auto;
