@@ -1,8 +1,0 @@
-{ "require" : 
-	{ "behat/behat" : "*"
-	, "behat/mink" : "*"
-	, "behat/mink-extension" : "*"
-	, "behat/mink-selenium2-driver" : "*"
-	, "behat/mink-zombie-driver" : "*" }
-, "config" :
-	{ "bin-dir" : "bin/" } }
